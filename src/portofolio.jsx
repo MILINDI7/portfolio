@@ -1,17 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, ExternalLink, Mail, Phone, MapPin, Linkedin, Twitter, Code, Database, Server, Star } from 'lucide-react';
+import { Github, ExternalLink, Mail, Phone, MapPin, Linkedin, Twitter, Code, Database, Server } from 'lucide-react';
 import './portfolio.css';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [scrollY, setScrollY] = useState(0);
   const sectionRefs = useRef({});
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-      
-      // Update active section based on scroll position
       const sections = Object.keys(sectionRefs.current);
       for (let section of sections) {
         const element = sectionRefs.current[section];
@@ -78,7 +74,6 @@ const Portfolio = () => {
           ctx.fill();
         });
 
-        // Draw connections
         particles.forEach((particle, i) => {
           particles.slice(i + 1).forEach(otherParticle => {
             const dx = particle.x - otherParticle.x;
@@ -111,8 +106,7 @@ const Portfolio = () => {
 
     return <canvas ref={canvasRef} className="particle-canvas" />;
   };
-
-  const SkillMeter = ({ skill, percentage }) => {
+    const SkillMeter = ({ skill, percentage }) => {
     const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
     useEffect(() => {
@@ -164,11 +158,11 @@ const Portfolio = () => {
             ))}
           </div>
           <div className="project-links">
-            <a href="#" className="project-link github">
+            <a href={project.githubLink} className="project-link github" target="_blank" rel="noopener noreferrer">
               <Github size={16} />
               Code
             </a>
-            <a href="#" className="project-link demo">
+            <a href={project.demoLink} className="project-link demo" target="_blank" rel="noopener noreferrer">
               <ExternalLink size={16} />
               Live Demo
             </a>
@@ -222,17 +216,23 @@ const Portfolio = () => {
     {
       title: "E-Commerce Platform",
       description: "Full-stack e-commerce solution with payment integration and admin dashboard",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"]
+      tech: ["React", "Node.js", "MongoDB", "Stripe"],
+      githubLink: "https://github.com/MILINDI7",
+      demoLink: "https://milindi7.github.io/photo-combo/"
     },
     {
       title: "Task Management App",
       description: "Real-time collaborative task management with drag-and-drop functionality",
-      tech: ["Vue.js", "Express", "Socket.io", "PostgreSQL"]
+      tech: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
+      githubLink: "https://github.com/MILINDI7",
+      demoLink: "https://milindi7.github.io/photo-combo/"
     },
     {
       title: "Data Visualization Dashboard",
       description: "Interactive dashboard for business analytics with real-time data updates",
-      tech: ["React", "D3.js", "Python", "FastAPI"]
+      tech: ["React", "D3.js", "Python", "FastAPI"],
+      githubLink: "https://github.com/MILINDI7",
+      demoLink: "https://milindi7.github.io/photo-combo/"
     }
   ];
 
@@ -256,10 +256,8 @@ const Portfolio = () => {
       description: "Built responsive web interfaces, worked with REST APIs, participated in agile development processes"
     }
   ];
-
-  return (
+    return (
     <div className="portfolio">
-      {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-brand">Portfolio</div>
@@ -277,40 +275,36 @@ const Portfolio = () => {
         </div>
       </nav>
 
-    {/* Hero Section */}
-<section
-  ref={el => sectionRefs.current['home'] = el}
-  className="hero-section"
->
-  <ParticleBackground />
-  <div className="hero-content">
-    <h2 className="hero-title">
-      This is MILINDI Shema David, welcome to my portfolio!
-    </h2>
-    <p className="hero-subtitle">
-      Full Stack Developer | Problem Solver | Innovator
-    </p>
-    <div className="hero-buttons">
-      <a
-        href="./public/MILINDI-resume.pdf"
-        download="MILINDI-resume.pdf"
-        className="btn btn-primary"
+      <section
+        ref={el => sectionRefs.current['home'] = el}
+        className="hero-section"
       >
-        Download My CV
-      </a>
-      <button
-        onClick={() => scrollToSection('contact')}
-        className="btn btn-outline"
-      >
-        Get In Touch
-      </button>
-    </div>
-  </div>
-</section>
+        <ParticleBackground />
+        <div className="hero-content">
+          <h2 className="hero-title">
+            This is MILINDI Shema David, welcome to my portfolio!
+          </h2>
+          <p className="hero-subtitle">
+            Full Stack Developer | Problem Solver | Innovator
+          </p>
+          <div className="hero-buttons">
+            <a
+              href="./public/MILINDI-resume.pdf"
+              download="MILINDI-resume.pdf"
+              className="btn btn-primary"
+            >
+              Download My CV
+            </a>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="btn btn-outline"
+            >
+              Get In Touch
+            </button>
+          </div>
+        </div>
+      </section>
 
-
-
-      {/* About Section */}
       <section 
         ref={el => sectionRefs.current['about'] = el}
         className="about-section"
@@ -344,7 +338,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
       <section 
         ref={el => sectionRefs.current['skills'] = el}
         className="skills-section"
@@ -386,7 +379,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section 
         ref={el => sectionRefs.current['projects'] = el}
         className="projects-section"
@@ -401,7 +393,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section 
         ref={el => sectionRefs.current['experience'] = el}
         className="experience-section"
@@ -416,7 +407,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section 
         ref={el => sectionRefs.current['contact'] = el}
         className="contact-section"
@@ -427,24 +417,24 @@ const Portfolio = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <Mail size={24} />
-                <span>alex.johnson@email.com</span>
+                <span>dshema7@gmail.com</span>
               </div>
               <div className="contact-item">
                 <Phone size={24} />
-                <span>+1 (555) 123-4567</span>
+                <span>+250787562222</span>
               </div>
               <div className="contact-item">
                 <MapPin size={24} />
-                <span>San Francisco, CA</span>
+                <span>Kigali, Rwanda</span>
               </div>
               <div className="social-links">
-                <a href="#" className="social-link">
+                <a href="https://github.com/MILINDI7" className="social-link" target="_blank" rel="noopener noreferrer">
                   <Github size={24} />
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://www.linkedin.com/in/david-milindi-shema-803954231/" className="social-link" target="_blank" rel="noopener noreferrer">
                   <Linkedin size={24} />
                 </a>
-                <a href="#" className="social-link">
+                <a href="x.com" className="social-link" target="_blank" rel="noopener noreferrer">
                   <Twitter size={24} />
                 </a>
               </div>
@@ -482,10 +472,9 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>© 2025 Alex Johnson. Built with React and ❤️</p>
+          <p>© 2025 MILINDI Shema David. Built with React and ❤️</p>
         </div>
       </footer>
     </div>
