@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MILINDI7/portfolio.git/static/css/main.a020f6bd.css",
+    "main.js": "/MILINDI7/portfolio.git/static/js/main.1ae14f79.js",
+    "static/js/453.438d9e50.chunk.js": "/MILINDI7/portfolio.git/static/js/453.438d9e50.chunk.js",
+    "index.html": "/MILINDI7/portfolio.git/index.html",
+    "main.a020f6bd.css.map": "/MILINDI7/portfolio.git/static/css/main.a020f6bd.css.map",
+    "main.1ae14f79.js.map": "/MILINDI7/portfolio.git/static/js/main.1ae14f79.js.map",
+    "453.438d9e50.chunk.js.map": "/MILINDI7/portfolio.git/static/js/453.438d9e50.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a020f6bd.css",
+    "static/js/main.1ae14f79.js"
+  ]
+}
