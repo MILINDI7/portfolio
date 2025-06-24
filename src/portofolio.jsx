@@ -289,7 +289,7 @@ const Portfolio = () => {
           </p>
           <div className="hero-buttons">
             <a
-              href="./public/MILINDI-resume.pdf"
+              href={process.env.PUBLIC_URL + "/MILINDI-resume.pdf"}
               download="MILINDI-resume.pdf"
               className="btn btn-primary"
             >

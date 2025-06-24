@@ -1,7 +1,7 @@
 {
-  "homepage": "https://github.com/MILINDI7/portfolio.git",
   "name": "my-portfolio",
   "version": "0.1.0",
+  "homepage": "https://milindi7.github.io/portfolio/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
